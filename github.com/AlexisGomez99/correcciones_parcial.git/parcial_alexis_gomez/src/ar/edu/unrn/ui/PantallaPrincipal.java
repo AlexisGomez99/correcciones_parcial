@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ar.edu.unrn.modelo.Observer;
 import ar.edu.unrn.modelo.RepositorioVentas;
 
 import ar.edu.unrn.persistencia.EnDiscoRegistrarVenta;
@@ -12,13 +13,14 @@ import ar.edu.unrn.persistencia.EnDiscoRegistrarVenta;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class PantallaPrincipal extends JFrame {
 
 	private JPanel contentPane;
 
-	public PantallaPrincipal(RepositorioVentas api) {
+	public PantallaPrincipal(RepositorioVentas api, List<Observer> observables) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -29,7 +31,7 @@ public class PantallaPrincipal extends JFrame {
 		JButton btnCargarCombustible = new JButton("Cargar Combustible");
 		btnCargarCombustible.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PantallaCargarCombustible cargarCombustible= new PantallaCargarCombustible(api);
+				PantallaCargarCombustible cargarCombustible= new PantallaCargarCombustible(api,observables);
 				cargarCombustible.setVisible(true);
 				
 			}

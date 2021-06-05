@@ -60,11 +60,11 @@ public class VentasWeb implements RepositorioVentasWeb{
 				LocalDateTime fecha2= LocalDateTime.of(fecha.getYear(), fecha.getMonthValue(), fecha.getDayOfMonth(), fecha.getHour(),fecha.getMinute());
 				System.out.println(fecha2.toString());
 				if(resul.getString("v.Combustible").equalsIgnoreCase("Comun")) {
-					ventas.add(new Venta(new Comun(resul.getString("v.Combustible")), resul.getString("v.CantidadLitros"),fecha2));
+					ventas.add(new Venta(new Comun(resul.getString("v.Combustible")), resul.getString("v.CantidadLitros"),fecha2,null,null,null,null));
 				}
 				else
 				{
-					ventas.add(new Venta(new Super(resul.getString("v.Combustible")), resul.getString("v.CantidadLitros"),fecha2));
+					ventas.add(new Venta(new Super(resul.getString("v.Combustible")), resul.getString("v.CantidadLitros"),fecha2,null,null,null,null));
 				}
 			}
 			resul.close();

@@ -21,7 +21,7 @@ public class PersistenciaVentasBDTest {
 		RepositorioVentas api= new PersistenciaVentasBD();
 		LocalDateTime diaSabado= LocalDateTime.of(2021, 5, 8,0,0);
 		Super combustible = new Super("Super");
-		Venta venta = new Venta(combustible,"20",diaSabado);
+		Venta venta = new Venta(combustible,"20",diaSabado,null,null,null,null);
 		//exercise
 		assertTrue("No hay coneccion a base de datos.",api.agregarVenta(venta));
 		

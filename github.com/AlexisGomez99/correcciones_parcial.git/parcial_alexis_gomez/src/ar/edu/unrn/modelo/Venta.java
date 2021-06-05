@@ -3,18 +3,23 @@ package ar.edu.unrn.modelo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 import ar.edu.unrn.modeloexceptions.DataEmptyException;
 import ar.edu.unrn.modeloexceptions.NotNullException;
 import ar.edu.unrn.modeloexceptions.NotNumbreException;
 
-public class Venta {
+public class Venta extends Observable{
 	
 	private LocalDateTime fechaDeLaVenta;
 	private Combustible combustible;
 	private int cantLitros;
 	private int descuento=0;
-	public Venta(Combustible combustible, String cantLitros, LocalDateTime fecha) throws RuntimeException, NotNullException, DataEmptyException, NotNumbreException{
+	private String email;
+	private String asunto;
+	private String textoEmail;
+	public Venta(Combustible combustible, String cantLitros, LocalDateTime fecha, List<Observer> observable,
+			String email,String asunto, String textoEmail) throws RuntimeException, NotNullException, DataEmptyException, NotNumbreException{
 		super();
 		
 		if(esDatoNulo(cantLitros))
@@ -27,11 +32,18 @@ public class Venta {
 		if(this.cantLitros<0)
 			throw new RuntimeException("La cantidad de litros debe ser mayor a 0.");
 		
-		
+		this.asunto=asunto;
+		this.email=email;
+		this.textoEmail=textoEmail;
 		this.fechaDeLaVenta = fecha;		
 		this.combustible = combustible;
+		for (Observer observer : observable) {
+	         this.agregarObservador(observer);
+	     }
 	}
-	
+	public void notificar() {
+		this.notificar(email,asunto,textoEmail);
+	}
 	
 	//Getters
 	public LocalDateTime fecha() {

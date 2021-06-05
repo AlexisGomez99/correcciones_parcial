@@ -13,6 +13,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="lib" path="C:/Users/Alexis/Downloads/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alexis/Downloads/jakarta.mail-1.6.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alexis/Downloads/jakarta.activation-1.2.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
